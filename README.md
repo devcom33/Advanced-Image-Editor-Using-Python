@@ -57,19 +57,31 @@ This Advanced Image Editor is a simple yet powerful tool built using Python, Ope
     ```
 
 2. **Load an image:**
-    - Click on `File` -> `Open` and select the image you want to edit.
+    - Click on `Open Image` and select the image you want to edit.
 
 3. **Apply filters:**
     - Use the toolbar and menu options to apply various edits and effects to your image.
 
 4. **Save the image:**
-    - Click on `File` -> `Save` to save your edited image.
+    - Click on `Save Image` to save your edited image.
 
 ## Directory Structure
-'''
+```
 Advanced-Image-Editor-Using-Python/
 ├── README.md
 ├── requirements.txt
 ├── filter_image.py
 ├── ui_app.py
-'''
+```
+
+
+## Screenshots
+
+Here are some screenshots of the application in action:
+
+### Main Interface
+![Main Interface](images/screenshot1.png)
+
+### Applying a Filter
+![Applying a Filter](images/screenshot2.png)
+
