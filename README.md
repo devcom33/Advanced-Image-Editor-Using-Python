@@ -66,9 +66,10 @@ This Advanced Image Editor is a simple yet powerful tool built using Python, Ope
     - Click on `File` -> `Save` to save your edited image.
 
 ## Directory Structure
-
+'''
 Advanced-Image-Editor-Using-Python/
 ├── README.md
 ├── requirements.txt
 ├── filter_image.py
 ├── ui_app.py
+'''
