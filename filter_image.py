@@ -35,13 +35,26 @@ class FilterImage:
             return image
         return image
 
-    def add_gaussian_noise(self, image, mean=0, var=0.01):
+    def add_gaussian_noise(self, image, progress_callback=None):
         if image is not None:
-            row, col, ch = image.shape
-            sigma = var**0.5
-            gauss = np.random.normal(mean, sigma, (row, col, ch))
-            noisy = image + gauss.reshape(row, col, ch)
-            return np.clip(noisy, 0, 255).astype(np.uint8)
+            if len(image.shape) == 3:  # Color image
+                row, col, ch = image.shape
+                sigma = np.sqrt(0.01)
+                gauss = np.random.normal(0, sigma, (row, col, ch))
+                noisy = image + gauss.reshape(row, col, ch) * 255
+            elif len(image.shape) == 2:  # Grayscale image
+                row, col = image.shape
+                sigma = np.sqrt(0.01)
+                gauss = np.random.normal(0, sigma, (row, col))
+                noisy = image + gauss * 255
+            
+            # Clip the values to be between 0 and 255
+            noisy = np.clip(noisy, 0, 255).astype(np.uint8)
+            
+            if progress_callback:
+                progress_callback(row * col)
+            
+            return noisy
         return image
 
     def mean_filter(self, image, n=3, m=3):
